@@ -1,6 +1,6 @@
 [package]
 name = "photocraft-cli"
-description = "Headless PhotoCraft: convert, inspect, run commands, batch, MCP server"
+description = "Headless Photozen: convert, inspect, run commands, batch, MCP server"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -19,7 +19,7 @@ name = "photocraft_cli"
 path = "src/lib.rs"
 
 [[bin]]
-name = "photocraft-cli"
+name = "photozen-cli"
 path = "src/main.rs"
 
 [dependencies]

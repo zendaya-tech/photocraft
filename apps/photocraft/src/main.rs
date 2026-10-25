@@ -1,16 +1,16 @@
-//! PhotoCraft desktop app.
+//! Photozen desktop app.
 //!
-//! Usage: `photocraft [--control <port>] [--control-token <64-hex> |
+//! Usage: `photozen [--control <port>] [--control-token <64-hex> |
 //! --control-token-file <path>] [--automation-read-root <dir>]
 //! [--automation-write-root <dir>] [--safe-gpu] [--in-window-menus] [--present-mode <mode>]
 //! [--frame-latency <n>] [--stroke-trace <stderr|file.csv>] [--new-instance] [--] [files…]`
-//! (`photocraft --help` prints [`USAGE`]; `--version` prints the version).
+//! (`photozen --help` prints [`USAGE`]; `--version` prints the version).
 //!
 //! Any other argument starting with `-` is a usage error (exit status 2, issue #6431), so a typo
 //! such as `--safegpu` doesn't open the window and then fail to open the flag as a file. A file
 //! whose name starts with `-` goes after `--`.
 //!
-//! On Windows and Linux a launch hands its files to the PhotoCraft that is already running (new
+//! On Windows and Linux a launch hands its files to the Photozen that is already running (new
 //! tabs in its window) and exits; `--new-instance` starts a separate copy instead, as does any
 //! `--control` launch (see `single_instance`).
 //!
@@ -106,7 +106,7 @@ fn native_options(custom_titlebar: bool) -> eframe::NativeOptions {
     eframe::NativeOptions {
         viewport: viewport
             .with_app_id(APP_ID)
-            .with_title("PhotoCraft")
+            .with_title("Photozen")
             .with_inner_size([1440.0, 900.0])
             .with_min_inner_size([760.0, 480.0])
             .with_drag_and_drop(true)
@@ -124,7 +124,7 @@ fn native_options(custom_titlebar: bool) -> eframe::NativeOptions {
 }
 
 /// The window eframe restores from `ui.ron`, corrected before it is created: at least the
-/// minimum size, and never full screen. PhotoCraft always starts in Standard Screen Mode, but
+/// minimum size, and never full screen. Photozen always starts in Standard Screen Mode, but
 /// eframe also saves and restores full screen, and a window closed in a full-screen mode is
 /// saved full screen and maximized at once: the overlap `view_cmds::screen_mode_commands` keeps
 /// apart at run time. [OBSERVED 2026-10-12, Windows 11] Restored that way, View › Screen Mode ›
@@ -135,7 +135,7 @@ fn restored_window(builder: egui::ViewportBuilder) -> egui::ViewportBuilder {
 
 /// Grow a restored window that is smaller than the minimum size, keeping its centre. On
 /// Windows, eframe saves a minimized window's size (160 pt wide, 64 pt tall once eframe has
-/// clamped it), and the minimum size isn't applied to a restored one: PhotoCraft then reopened
+/// clamped it), and the minimum size isn't applied to a restored one: Photozen then reopened
 /// as a 160 × 64 strip on every launch.
 fn at_least_min_size(mut builder: egui::ViewportBuilder) -> egui::ViewportBuilder {
     let (Some(size), Some(min)) = (builder.inner_size, builder.min_inner_size) else { return builder };
@@ -161,18 +161,18 @@ fn usage_exit_code(errors: &[String]) -> Option<i32> {
     if errors.is_empty() { None } else { Some(2) }
 }
 
-/// `photocraft --help`. Keep in step with the options `main` accepts and the module docs.
+/// `photozen --help`. Keep in step with the options `main` accepts and the module docs.
 const USAGE: &str = "\
-Usage: photocraft [options] [--] [files…]
+Usage: photozen [options] [--] [files…]
 
-Opens PhotoCraft with the given files.
+Opens Photozen with the given files.
 
 Options:
   -h, --help                       Print this help and exit
       --version                    Print the version, commit and build date and exit
       --safe-gpu                   Start with the CPU renderer for this launch (after a graphics driver crash)
       --in-window-menus            macOS: keep the menus inside the window instead of the menu bar
-      --new-instance               Windows and Linux: start a separate PhotoCraft instead of opening
+      --new-instance               Windows and Linux: start a separate Photozen instead of opening
                                    the files in the one already running
       --present-mode <mode>        How frames reach the display: fifo, autovsync or novsync
       --frame-latency <n>          Frames queued for the display: 1 to 3
@@ -303,7 +303,7 @@ fn parse_launch_args(args: impl Iterator<Item = std::ffi::OsString>, mut out: La
                         _ => out.stroke_trace_arg = Some(v),
                     },
                     // A bad value is reported and ignored; it never fails the launch.
-                    _ => eprintln!("photocraft: {flag}: missing or unreadable value; ignored"),
+                    _ => eprintln!("photozen: {flag}: missing or unreadable value; ignored"),
                 }
             }
             Some("--in-window-menus") => {
@@ -478,9 +478,9 @@ fn main() -> eframe::Result {
     // status 2 is the usual command-line usage error, so a launcher sees the failure.
     if let Some(code) = usage_exit_code(&launch.errors) {
         for error in &launch.errors {
-            eprintln!("photocraft: {error}");
+            eprintln!("photozen: {error}");
         }
-        eprintln!("Run `photocraft --help` for usage.");
+        eprintln!("Run `photozen --help` for usage.");
         std::process::exit(code);
     }
     let LaunchArgs {
@@ -507,7 +507,7 @@ fn main() -> eframe::Result {
     // and usage errors leave no file behind. Records logged until now are written to it first.
     if let (Some(logger), Some(dir)) = (logger, services::config_dir()) {
         match logger.attach_dir(&dir.join("logs")) {
-            Ok(path) => log::info!("PhotoCraft {}, log file {}", photocraft_engine::build_info::long_version(), path.display()),
+            Ok(path) => log::info!("Photozen {}, log file {}", photocraft_engine::build_info::long_version(), path.display()),
             // Standard error only by now (`attach_dir` gave up on the file); unlike `eprintln!`, never panics.
             Err(e) => log::warn!("no log file: {e}"),
         }
@@ -518,7 +518,7 @@ fn main() -> eframe::Result {
     if gpu_startup::adapter_override_is_process_specific(std::env::var("PHOTOCRAFT_GPU_ADAPTER").ok().as_deref(), rendering_mode, gpu_startup::ADAPTER_CHOICE) {
         launch_options.push("PHOTOCRAFT_GPU_ADAPTER");
     }
-    // One PhotoCraft per user (#3708): files opened from Explorer or a file manager while it runs
+    // One Photozen per user (#3708): files opened from Explorer or a file manager while it runs
     // become tabs in its window. Only with the per-user settings folder (a portable copy's may be
     // shared between users), and not for automation, `--new-instance` or per-process options.
     #[cfg(not(target_os = "macos"))]
@@ -541,7 +541,7 @@ fn main() -> eframe::Result {
         };
         match (single_instance::skip_reason(&context), services::config_dir()) {
             (Some(reason), _) => {
-                log::info!("running as a separate PhotoCraft: {reason}");
+                log::info!("running as a separate Photozen: {reason}");
                 None
             }
             (None, None) => None,
@@ -549,12 +549,12 @@ fn main() -> eframe::Result {
                 let paths: Vec<String> = files.iter().map(|f| single_instance::absolute(f)).collect();
                 match single_instance::claim(&dir, &paths) {
                     single_instance::Launch::Forwarded => {
-                        log::info!("handed {} file(s) to the running PhotoCraft", paths.len());
+                        log::info!("handed {} file(s) to the running Photozen", paths.len());
                         return Ok(());
                     }
                     single_instance::Launch::Primary(primary) => Some(primary),
                     single_instance::Launch::Standalone(reason) => {
-                        log::warn!("starting a separate PhotoCraft: {reason}");
+                        log::warn!("starting a separate Photozen: {reason}");
                         None
                     }
                 }
@@ -582,7 +582,7 @@ fn main() -> eframe::Result {
         && std::env::var_os("DISPLAY").is_some_and(|d| !d.is_empty())
         && linux_libs::available(linux_libs::DisplaySession::X11)
     {
-        eprintln!("photocraft: opening the window through Xwayland (Preferences › Performance › Linux display server)");
+        eprintln!("photozen: opening the window through Xwayland (Preferences › Performance › Linux display server)");
         linux_libs::DisplaySession::X11
     } else {
         session
@@ -601,21 +601,21 @@ fn main() -> eframe::Result {
         let token = match photocraft_automation::security::server_token(supplied.as_deref(), token_file.as_deref()) {
             Ok(token) => token,
             Err(e) => {
-                eprintln!("photocraft: cannot configure control authentication: {e}");
+                eprintln!("photozen: cannot configure control authentication: {e}");
                 std::process::exit(2);
             }
         };
         if let Some(path) = token_file {
-            eprintln!("photocraft: control token file: {}", path.display());
+            eprintln!("photozen: control token file: {}", path.display());
         } else if supplied.is_none() {
-            eprintln!("photocraft: control token: {token}");
+            eprintln!("photozen: control token: {token}");
         } else {
-            eprintln!("photocraft: using supplied control token");
+            eprintln!("photozen: using supplied control token");
         }
         let workspace = match photocraft_automation::AuthorizedWorkspace::new(automation_read_root.as_deref(), automation_write_root.as_deref()) {
             Ok(workspace) => workspace,
             Err(error) => {
-                eprintln!("photocraft: cannot configure automation workspace: {error}");
+                eprintln!("photozen: cannot configure automation workspace: {error}");
                 std::process::exit(2);
             }
         };
@@ -718,7 +718,7 @@ fn main() -> eframe::Result {
     let created_in_callback = app_created.clone();
     let started_sentinel = sentinel.clone();
     let result = eframe::run_native(
-        "PhotoCraft",
+        "Photozen",
         options,
         Box::new(move |cc| {
             created_in_callback.store(true, std::sync::atomic::Ordering::Relaxed);
@@ -887,7 +887,7 @@ fn main() -> eframe::Result {
             #[cfg(target_os = "linux")]
             tablet::spawn_x11(&app.stylus.feed, display);
             app.services.right_button_down = tablet::right_button_service();
-            // Paths on the command line (Linux/Windows file associations, `photocraft a.psd`).
+            // Paths on the command line (Linux/Windows file associations, `photozen a.psd`).
             app.open_paths(&files);
             if !unreadable_paths.is_empty() {
                 use photocraft_ui_egui::i18n;
@@ -1047,7 +1047,7 @@ mod tests {
             .with_fullscreen(true)
             .with_maximized(true);
         let opened = hook(saved);
-        assert_eq!(opened.fullscreen, Some(false), "Standard Screen Mode is where PhotoCraft starts");
+        assert_eq!(opened.fullscreen, Some(false), "Standard Screen Mode is where Photozen starts");
         assert_eq!(opened.maximized, Some(true), "the rest of the saved geometry is kept");
         assert_eq!(opened.inner_size, Some(egui::vec2(2560.0, 1392.0)));
     }

@@ -3,9 +3,13 @@ name = "photocraft"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-default-run = "photocraft"
-description = "PhotoCraft: an open-source, native image editor"
+default-run = "photozen"
+description = "Photozen: an open-source, native image editor"
 build = "build.rs"
+
+[[bin]]
+name = "photozen"
+path = "src/main.rs"
 
 [features]
 # Open HEIC/HEIF photos (the optional photocraft-heif crate). Not default so distributors choose

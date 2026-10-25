@@ -1,5 +1,5 @@
 //! Re-render oracle over the Photoshop corpus (`corpus/photoshop`): our own Photoshop-authored
-//! PSDs from https://github.com/storytold/photocraft-corpus, fetched at a pinned commit by
+//! PSDs from https://github.com/zendaya-tech/photocraft-corpus, fetched at a pinned commit by
 //! `cargo xtask corpus --all`. Feature `corpus` (run with `cargo xtask test-corpus`); a missing
 //! corpus fails.
 //!
@@ -93,7 +93,7 @@ fn screen_motion_blur_retains_input_coverage() {
     assert!(error <= PASS_TOL, "Screen/Motion Blur error {error}, {bad}% pixels exceed 2/255");
 }
 
-/// Re-render every Photoshop oracle in the corpus with PhotoCraft's filters and compare it with Photoshop's own merged composite.
+/// Re-render every Photoshop oracle in the corpus with Photozen's filters and compare it with Photoshop's own merged composite.
 #[test]
 fn photoshop_oracles_rerendered() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../corpus/photoshop");

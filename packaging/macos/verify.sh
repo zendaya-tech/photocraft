@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Check the macOS release artifacts exactly as users download them:
 #
-#   $DIST/photocraft-<version>-macos-<arch>.dmg       signed, notarized, ticket stapled
-#   $DIST/photocraft-cli-<version>-macos-<arch>.zip   unpacked here; the binary inside must be
+#   $DIST/photozen-<version>-macos-<arch>.dmg       signed, notarized, ticket stapled
+#   $DIST/photozen-cli-<version>-macos-<arch>.zip   unpacked here; the binary inside must be
 #                                                    Developer ID signed with the hardened runtime,
 #                                                    timestamped and notarized
 #
@@ -37,8 +37,8 @@ case "$ARCH" in
   *) echo "unknown --arch $ARCH" >&2; exit 2 ;;
 esac
 
-DMG="$DIST/photocraft-$VERSION-macos-$ARCH.dmg"
-CLI_ZIP="$DIST/photocraft-cli-$VERSION-macos-$ARCH.zip"
+DMG="$DIST/photozen-$VERSION-macos-$ARCH.dmg"
+CLI_ZIP="$DIST/photozen-cli-$VERSION-macos-$ARCH.zip"
 IDENTITY="${MACOS_SIGN_IDENTITY:--}"
 STRICT=0
 if [ "$IDENTITY" != "-" ] && [ -n "${APPLE_ID:-}" ] && [ -n "${APPLE_PASSWORD:-}" ] && [ -n "${APPLE_TEAM_ID:-}" ]; then
@@ -83,9 +83,9 @@ trap 'rm -rf "$WORK"' EXIT
 # ---- CLI zip -----------------------------------------------------------------------------------
 echo "==> $(basename "$CLI_ZIP")"
 ditto -x -k "$CLI_ZIP" "$WORK/cli"
-CLI="$WORK/cli/photocraft-cli-$VERSION-macos-$ARCH/photocraft-cli"
+CLI="$WORK/cli/photozen-cli-$VERSION-macos-$ARCH/photozen-cli"
 if [ ! -x "$CLI" ]; then
-  echo "error: $(basename "$CLI_ZIP") has no executable photocraft-cli-$VERSION-macos-$ARCH/photocraft-cli" >&2
+  echo "error: $(basename "$CLI_ZIP") has no executable photozen-cli-$VERSION-macos-$ARCH/photozen-cli" >&2
   exit 1
 fi
 
@@ -93,7 +93,7 @@ archs="$(lipo -archs "$CLI")"
 for a in $WANT_ARCHS; do
   case " $archs " in
     *" $a "*) ;;
-    *) echo "error: photocraft-cli lacks $a (has: $archs)" >&2; exit 1 ;;
+    *) echo "error: photozen-cli lacks $a (has: $archs)" >&2; exit 1 ;;
   esac
 done
 
@@ -103,22 +103,22 @@ details="$(codesign -d --verbose=2 "$CLI" 2>&1)"
 printf '%s\n' "$details" | grep -E '^(Identifier|Format|CodeDirectory|Authority|Timestamp|TeamIdentifier)[= ]' || true
 
 printf '%s\n' "$details" | grep -Eq '^CodeDirectory .*flags=0x[0-9a-f]+\([^)]*runtime' \
-  || fail "photocraft-cli is not signed with the hardened runtime"
+  || fail "photozen-cli is not signed with the hardened runtime"
 printf '%s\n' "$details" | grep -q '^Authority=Developer ID Application:' \
-  || fail "photocraft-cli is not signed with a Developer ID Application identity"
+  || fail "photozen-cli is not signed with a Developer ID Application identity"
 printf '%s\n' "$details" | grep -q '^Timestamp=' \
-  || fail "photocraft-cli signature has no secure timestamp"
+  || fail "photozen-cli signature has no secure timestamp"
 if [ -n "${APPLE_TEAM_ID:-}" ]; then
   printf '%s\n' "$details" | grep -qx "TeamIdentifier=$APPLE_TEAM_ID" \
-    || fail "photocraft-cli is signed by a different team"
+    || fail "photozen-cli is signed by a different team"
 fi
 if gk="$(assess --assess --type install -vv "$CLI")"; then
   printf '%s\n' "$gk"
   printf '%s\n' "$gk" | grep -q 'source=Notarized Developer ID' \
-    || fail "Gatekeeper accepts photocraft-cli but not as notarized"
+    || fail "Gatekeeper accepts photozen-cli but not as notarized"
 else
   printf '%s\n' "$gk"
-  fail "Gatekeeper rejects photocraft-cli (not notarized?)"
+  fail "Gatekeeper rejects photozen-cli (not notarized?)"
 fi
 "$CLI" --version
 

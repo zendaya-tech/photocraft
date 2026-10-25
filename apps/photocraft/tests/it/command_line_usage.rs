@@ -1,4 +1,4 @@
-//! `photocraft --help` and unknown options must not open the window (#6431): before the fix,
+//! `photozen --help` and unknown options must not open the window (#6431): before the fix,
 //! any argument the loop didn't know was taken as a file, so `--help` or a typo such as
 //! `--safegpu` launched the GUI and logged "Couldn't open --help".
 //!
@@ -14,7 +14,7 @@ fn run_photocraft(args: &[&str]) -> (std::process::ExitStatus, String, String) {
     let n = NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
     let dir = std::env::temp_dir().join(format!("photocraft-usage-{}-{n}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let output = std::process::Command::new(env!("CARGO_BIN_EXE_photocraft"))
+    let output = std::process::Command::new(env!("CARGO_BIN_EXE_photozen"))
         .args(args)
         .env("PHOTOCRAFT_CONFIG_DIR", &dir)
         .env_remove("PHOTOCRAFT_CONTROL_PORT")
@@ -32,7 +32,7 @@ fn help_prints_usage_and_exits_0() {
     for flag in ["--help", "-h"] {
         let (status, stdout, stderr) = run_photocraft(&[flag]);
         assert_eq!(status.code(), Some(0), "{flag} must exit 0, stderr: {stderr}");
-        assert!(stdout.starts_with("Usage: photocraft"), "{flag} stdout: {stdout}");
+        assert!(stdout.starts_with("Usage: photozen"), "{flag} stdout: {stdout}");
         for option in ["--safe-gpu", "--new-instance", "--control <port>", "--version", "--"] {
             assert!(stdout.contains(option), "{flag} usage must list {option}: {stdout}");
         }
@@ -44,7 +44,7 @@ fn help_prints_usage_and_exits_0() {
 fn help_wins_over_later_arguments() {
     let (status, stdout, _) = run_photocraft(&["--help", "picture.psd", "--safegpu"]);
     assert_eq!(status.code(), Some(0));
-    assert!(stdout.starts_with("Usage: photocraft"), "stdout: {stdout}");
+    assert!(stdout.starts_with("Usage: photozen"), "stdout: {stdout}");
 }
 
 #[test]
@@ -53,7 +53,7 @@ fn unknown_options_exit_2_naming_them() {
         let (status, stdout, stderr) = run_photocraft(&[flag]);
         assert_eq!(status.code(), Some(2), "{flag} must be a usage error, stderr: {stderr}");
         assert!(stderr.contains(&format!("unknown option `{flag}`")), "stderr: {stderr}");
-        assert!(stderr.contains("photocraft --help"), "stderr should point at --help: {stderr}");
+        assert!(stderr.contains("photozen --help"), "stderr should point at --help: {stderr}");
         assert!(stdout.is_empty(), "stdout: {stdout}");
     }
 }

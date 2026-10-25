@@ -9,7 +9,7 @@
 # Clean-room: every entry was written from the plain meaning of the English label using ordinary
 # Spanish computing vocabulary (capa, pincel, selección, lienzo ...). No proprietary localisation
 # resource, string table or product UI was consulted or copied; add entries the same way.
-# Product and technology names (PhotoCraft, ArtCraft, OpenType, CMYK, Lab ...) stay in Latin
+# Product and technology names (Photozen, Zendaya, OpenType, CMYK, Lab ...) stay in Latin
 # letters; the trailing "…" of dialog commands is kept.
 
 # Layer Mask Display Options (the layer mask rubylith's colour and opacity)
@@ -798,11 +798,11 @@
 	Timeline	Línea de tiempo
 	Tool Presets	Ajustes preestablecidos de herramienta
 	Tools	Herramientas
-	About PhotoCraft	Acerca de PhotoCraft
-	PhotoCraft Website	Sitio web de PhotoCraft
-	PhotoCraft on GitHub	PhotoCraft en GitHub
-	ArtCraft Website	Sitio web de ArtCraft
-	Join the ArtCraft Discord…	Únase al Discord de ArtCraft…
+	About Photozen	Acerca de Photozen
+	Photozen Website	Sitio web de Photozen
+	Photozen on GitHub	Photozen en GitHub
+	Zendaya Website	Sitio web de Zendaya
+	Join the Zendaya WhatsApp Channel…	Únase al WhatsApp de Zendaya…
 	Report an Issue…	Informar de un problema…
 	WIA Support…	Compatibilidad con WIA…
 	Apply	Aplicar
@@ -855,7 +855,7 @@
 	All Caps	Todo en mayúsculas
 	All Slices	Todos los sectores
 	All User Slices	Todos los sectores de usuario
-	All shortcuts reset to PhotoCraft defaults.	Se restablecieron todos los métodos abreviados a los valores predeterminados de PhotoCraft.
+	All shortcuts reset to Photozen defaults.	Se restablecieron todos los métodos abreviados a los valores predeterminados de Photozen.
 	Alt	Alt
 	Always use pressure for opacity	Usar siempre la presión para la opacidad
 	Always use pressure for size	Usar siempre la presión para el tamaño
@@ -1086,7 +1086,7 @@
 	Diffusion	Difusión
 	Discard the embedded profile (don't color manage)	Descartar el perfil incrustado (no gestionar el color)
 	Discontiguous	No contiguo
-	Discord	Discord
+	WhatsApp	WhatsApp
 	Dismiss	Descartar
 	Display P3	Display P3
 	Display Text	Texto de visualización
@@ -1106,8 +1106,8 @@
 	Drop an image or PSD anywhere to open it.	Suelte una imagen o un PSD en cualquier lugar para abrirlo.
 	Native file drag-and-drop is unavailable	Arrastrar y soltar archivos de forma nativa no está disponible en Wayland
 	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or copy the image in your file manager and paste it with {paste}.	Arrastrar y soltar archivos de forma nativa aún no es compatible con Wayland. Use Archivo › Abrir, o copie la imagen en su gestor de archivos y péguela con {paste}.
-	To drop files, start PhotoCraft under XWayland: `{command}`	Para soltar archivos, inicie PhotoCraft con XWayland: `{command}`
-	Or set Preferences › Performance › Linux display server to X11: PhotoCraft then always starts under XWayland.	O establezca Preferencias › Rendimiento › Servidor de pantalla de Linux en X11: PhotoCraft se iniciará siempre con XWayland.
+	To drop files, start Photozen under XWayland: `{command}`	Para soltar archivos, inicie Photozen con XWayland: `{command}`
+	Or set Preferences › Performance › Linux display server to X11: Photozen then always starts under XWayland.	O establezca Preferencias › Rendimiento › Servidor de pantalla de Linux en X11: Photozen se iniciará siempre con XWayland.
 	Edit › Paste	Edición › Pegar
 	Duplicate Layers…	Duplicar capas…
 	Duplicate style	Duplicar estilo
@@ -1221,7 +1221,7 @@
 	Invert All	Invertir todo
 	Invert has no settings.	Invertir no tiene ajustes.
 	Italic	Cursiva
-	Join us on Discord	Únase a nuestro Discord
+	Join the WhatsApp Channel	Únase a nuestro WhatsApp
 	Justify all	Justificar todo
 	Justify last centered	Justificar última centrada
 	Justify last left	Justificar última a la izquierda
@@ -1357,9 +1357,9 @@
 	Perspective Warp is not active	La deformación de perspectiva no está activa
 	Perspective Warp: draw planes along the image's perspective, then switch to Warp	Deformación de perspectiva: dibuje planos siguiendo la perspectiva de la imagen y luego cambie a Deformar
 	Photo Filter	Filtro de fotografía
-	PhotoCraft	PhotoCraft
-	PhotoCraft Manages Colors	PhotoCraft gestiona el color
-	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — un editor de imágenes nativo y de código abierto escrito en Rust.
+	Photozen	Photozen
+	Photozen Manages Colors	Photozen gestiona el color
+	Photozen — an open-source, native image editor written in Rust.	Photozen — un editor de imágenes nativo y de código abierto escrito en Rust.
 	Pin Depth:	Profundidad de la chincheta:
 	Pixel Length:	Longitud en píxeles:
 	Pixels/Centimeter	Píxeles/centímetro
@@ -1435,11 +1435,11 @@
 	Import Shortcuts…	Importar métodos abreviados…
 	Load a keyboard shortcut set saved as .kys	Cargar un conjunto de métodos abreviados de teclado guardado como .kys
 	Imported {n} shortcuts from {file}. Click OK to keep them.	Se importaron {n} métodos abreviados de {file}. Haga clic en Aceptar para conservarlos.
-	{n} commands are not in PhotoCraft.	{n} comandos no existen en PhotoCraft.
+	{n} commands are not in Photozen.	{n} comandos no existen en Photozen.
 	Keyboard shortcuts imported	Métodos abreviados de teclado importados
 	Your keyboard shortcut set {set} is in use here: {n} shortcuts differ from the defaults. Edit › Keyboard Shortcuts shows them; Reset All to Defaults undoes this.	Su conjunto de métodos abreviados de teclado {set} se usa aquí: {n} métodos abreviados difieren de los predeterminados. Edición › Métodos abreviados de teclado los muestra; Restablecer todo a los valores predeterminados lo deshace.
 	Import keyboard shortcuts?	¿Importar métodos abreviados de teclado?
-	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	PhotoCraft encontró en este equipo su conjunto de métodos abreviados de teclado {set} de otro editor de imágenes: {n} de sus métodos abreviados difieren de los de PhotoCraft. ¿Desea importarlo?
+	Photozen found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from Photozen's. Import it?	Photozen encontró en este equipo su conjunto de métodos abreviados de teclado {set} de otro editor de imágenes: {n} de sus métodos abreviados difieren de los de Photozen. ¿Desea importarlo?
 	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	Edición › Métodos abreviados de teclado › Restablecer todo a los valores predeterminados deshace una importación.
 	Don't Import	No importar
 	The keyboard shortcut set was not imported: {error}	No se importó el conjunto de métodos abreviados de teclado: {error}
@@ -1630,7 +1630,7 @@
 	Apple Watch 45mm	Apple Watch 45mm
 	Aqua	Aqua
 	Art & Illustration	Arte e ilustración
-	ArtCraft	ArtCraft
+	Zendaya	Zendaya
 	Background Eraser Tool	Herramienta Borrador de fondos
 	Bevel & Emboss	Bisel y relieve
 	Blend Mode	Modo de fusión
@@ -1667,7 +1667,7 @@
 	Current Tool	Herramienta actual
 	Custom Shape Tool	Herramienta Forma personalizada
 	Cyans	Cianes
-	Default PhotoCraft Size	Tamaño predeterminado de PhotoCraft
+	Default Photozen Size	Tamaño predeterminado de Photozen
 	Delete Workspace	Eliminar espacio de trabajo
 	Diamond	Diamante
 	Dimensions:	Dimensiones:
@@ -1778,7 +1778,7 @@
 	Pen Tool	Herramienta Pluma
 	Convert Point Tool	Herramienta Convertir punto
 	Photo	Fotografía
-	PhotoCraft website	Sitio web de PhotoCraft
+	Photozen website	Sitio web de Photozen
 	Picas	Picas
 	Pillow Emboss	Relieve en almohadilla
 	Pixel Replacement	Sustitución de píxeles
@@ -2118,7 +2118,7 @@
 	System Info	Información del sistema
 	More panels	Más paneles
 	More documents	Más documentos
-	These settings aren't available in PhotoCraft yet.	Estos ajustes aún no están disponibles en PhotoCraft.
+	These settings aren't available in Photozen yet.	Estos ajustes aún no están disponibles en Photozen.
 	Graphics	Gráficos
 	Reset GPU Backend	Restablecer el backend de GPU
 	Applies at next launch.	Se aplicará en el próximo inicio.
@@ -2332,7 +2332,7 @@
 	Automatic uses GPU acceleration when available and falls back to CPU rendering on errors.	Automático utiliza la GPU cuando está disponible y cambia a la CPU si hay errores.
 	Switched to CPU rendering	Se cambió al renderizado por CPU
 	GPU acceleration could not continue. Your documents are unchanged.	La aceleración GPU no pudo continuar. Los documentos no han cambiado.
-	PhotoCraft is using the CPU image compositor. The window may still use your graphics adapter.	PhotoCraft compone las imágenes en la CPU. La ventana aún puede usar el adaptador gráfico.
+	Photozen is using the CPU image compositor. The window may still use your graphics adapter.	Photozen compone las imágenes en la CPU. La ventana aún puede usar el adaptador gráfico.
 	Retry GPU requires a restart. Save your work first.	Reintentar la GPU requiere reiniciar. Guarde primero su trabajo.
 	Retry GPU tries the graphics processor again now.	Reintentar la GPU vuelve a probar el procesador gráfico ahora.
 	GPU acceleration resumed.	Se reanudó la aceleración GPU.
@@ -2578,7 +2578,7 @@ fontWeight	Italic	Cursiva
 	Color to Alpha…	Color a alfa…
 	Transparency Threshold	Umbral de transparencia
 	Opacity Threshold	Umbral de opacidad
-	PhotoCraft — Screen Color Picker	PhotoCraft — Selector de color de pantalla
+	Photozen — Screen Color Picker	Photozen — Selector de color de pantalla
 
 	Rasterize svg groups deeper than	Rasterizar grupos SVG con mayor profundidad
 	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	0 desactiva este umbral; los grupos SVG anidados a más de 100 niveles siempre se rasterizan.
@@ -3385,7 +3385,7 @@ layerLabel	No Color	Sin color
 	Restart Required	Es necesario reiniciar
 	Restart	Reiniciar
 	Quit	Salir
-	Quit PhotoCraft	Salir de PhotoCraft
+	Quit Photozen	Salir de Photozen
 	Close Window	Cerrar ventana
 	New Window	Nueva ventana
 	Open Image	Abrir imagen
@@ -3581,7 +3581,7 @@ layerLabel	No Color	Sin color
 	Custom Pixel Aspect Ratio	Relación de aspecto de píxel personalizada
 	32-bit Preview Options	Opciones de vista previa de 32 bits
 	New Guide	Nueva guía
-	Join the ArtCraft Discord	Únase al Discord de ArtCraft
+	Join the Zendaya WhatsApp Channel	Únase al WhatsApp de Zendaya
 	Report an Issue	Informar de un problema
 	Load Files into Stack	Cargar archivos en pila
 	Statistics	Estadísticas
@@ -3878,7 +3878,7 @@ layerLabel	No Color	Sin color
 	Mezzotint	Grabado
 	Mosaic	Mosaico
 	Motion Blur	Desenfoque de movimiento
-	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or run PhotoCraft under XWayland with `WAYLAND_DISPLAY= photocraft`.	Arrastrar y soltar archivos de forma nativa aún no es compatible con Wayland. Use Archivo › Abrir o ejecute PhotoCraft mediante XWayland con `WAYLAND_DISPLAY= photocraft`.
+	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or run Photozen under XWayland with `WAYLAND_DISPLAY= photocraft`.	Arrastrar y soltar archivos de forma nativa aún no es compatible con Wayland. Use Archivo › Abrir o ejecute Photozen mediante XWayland con `WAYLAND_DISPLAY= photocraft`.
 	Neon Glow	Resplandor de neón
 	New Guide Layout	Nuevo diseño de guías
 	New Video Layer from File	Nueva capa de vídeo desde archivo
@@ -4052,9 +4052,9 @@ layerLabel	No Color	Sin color
 	Saved {path}; image assets: {n} in {dir}	Se guardó {path}; recursos de imagen: {n} en {dir}
 	{message} (notes: {n}; {warning})	{message} (notas: {n}; {warning})
 	Preferences can't be saved	No se pueden guardar las preferencias
-	PhotoCraft keeps retrying; until a save succeeds, preference changes are lost when it closes.	PhotoCraft seguirá intentándolo; hasta que el guardado se complete, los cambios de preferencias se perderán al cerrar.
+	Photozen keeps retrying; until a save succeeds, preference changes are lost when it closes.	Photozen seguirá intentándolo; hasta que el guardado se complete, los cambios de preferencias se perderán al cerrar.
 	GPU retry scheduled	Reintento de GPU programado
-	Save your work and restart PhotoCraft to retry GPU acceleration. CPU rendering remains active for this session.	Guarde su trabajo y reinicie PhotoCraft para volver a intentar la aceleración por GPU. La interpretación por CPU seguirá activa durante esta sesión.
+	Save your work and restart Photozen to retry GPU acceleration. CPU rendering remains active for this session.	Guarde su trabajo y reinicie Photozen para volver a intentar la aceleración por GPU. La interpretación por CPU seguirá activa durante esta sesión.
 	GPU device was lost; using the CPU renderer.	Se perdió el dispositivo GPU; se usará el renderizador por CPU.
 	GPU error; using the CPU renderer.	Error de GPU; se usará el renderizador por CPU.
 	Couldn't open {name}: {error}	No se pudo abrir {name}: {error}
@@ -4114,7 +4114,7 @@ layerLabel	No Color	Sin color
 navigator	Zoom	Zoom
 	Apply {option}: {state}	Aplicar {option}: {state}
 	This adjustment ({key}) is kept as imported and can't be edited yet.	Este ajuste ({key}) se conserva como se importó y aún no puede editarse.
-	Join the ArtCraft Discord ({url})	Unirse al Discord de ArtCraft ({url})
+	Join the Zendaya WhatsApp Channel ({url})	Unirse al WhatsApp de Zendaya ({url})
 	{index} of {total}	{index} de {total}
 	{shortcut} assigned.	{shortcut} asignado.
 	{shortcut} is already in use by {commands} and will be removed from it when you click OK.	{shortcut} ya está en uso por {commands} y se quitará al hacer clic en Aceptar.
@@ -4168,7 +4168,7 @@ navigator	Zoom	Zoom
 	{name} (Photoshop)	{name} (Photoshop)
 	{message} ({note})	{message} ({note})
 @plural	Loaded {n} action from {file}|Loaded {n} actions from {file}	Se cargó {n} acción de {file}|Se cargaron {n} acciones de {file}
-@plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} paso aún no tiene equivalente en PhotoCraft|{n} pasos aún no tienen equivalente en PhotoCraft
+@plural	{n} step has no Photozen equivalent yet|{n} steps have no Photozen equivalent yet	{n} paso aún no tiene equivalente en Photozen|{n} pasos aún no tienen equivalente en Photozen
 @plural	Saved {n} action to {file}|Saved {n} actions to {file}	Se guardó {n} acción en {file}|Se guardaron {n} acciones en {file}
 @plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	{n} paso sin equivalente en Photoshop omitido|{n} pasos sin equivalente en Photoshop omitidos
 
@@ -4231,12 +4231,12 @@ navigator	Zoom	Zoom
 	Bicubic Smoother	Bicúbica más suavizada
 	Bicubic Sharper	Bicúbica más enfocada
 	Pasting from other apps is unavailable	Pegar desde otras aplicaciones no está disponible
-	PhotoCraft can't reach the system clipboard in this session. On Wayland, a Flatpak sandbox hides the protocol that images from other apps are read through.	PhotoCraft no puede acceder al portapapeles del sistema en esta sesión. En Wayland, el entorno aislado de Flatpak oculta el protocolo con el que se leen las imágenes de otras aplicaciones.
-	To paste from other apps, start PhotoCraft under XWayland: `{command}`	Para pegar desde otras aplicaciones, inicia PhotoCraft en XWayland: `{command}`
-	Nothing to paste: PhotoCraft can't read the system clipboard here	Nada que pegar: PhotoCraft no puede leer aquí el portapapeles del sistema
+	Photozen can't reach the system clipboard in this session. On Wayland, a Flatpak sandbox hides the protocol that images from other apps are read through.	Photozen no puede acceder al portapapeles del sistema en esta sesión. En Wayland, el entorno aislado de Flatpak oculta el protocolo con el que se leen las imágenes de otras aplicaciones.
+	To paste from other apps, start Photozen under XWayland: `{command}`	Para pegar desde otras aplicaciones, inicia Photozen en XWayland: `{command}`
+	Nothing to paste: Photozen can't read the system clipboard here	Nada que pegar: Photozen no puede leer aquí el portapapeles del sistema
 	Delete this set	Eliminar este conjunto
 	New Set…	Nuevo conjunto…
-	PhotoCraft Defaults	Valores por defecto de PhotoCraft
+	Photozen Defaults	Valores por defecto de Photozen
 	Save a list of these shortcuts as a web page	Guardar una lista de estos métodos abreviados como página web
 	Save the changes to this set	Guardar los cambios en este conjunto
 	Save these shortcuts as a .kys file	Guardar estos métodos abreviados como archivo .kys

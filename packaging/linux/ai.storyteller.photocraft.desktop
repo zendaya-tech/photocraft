@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=PhotoCraft
+Name=Photozen
 GenericName=Image Editor
 Comment=Edit photos and layered PSD documents
-Exec=photocraft %F
-TryExec=photocraft
+Exec=photozen %F
+TryExec=photozen
 Icon=ai.storyteller.photocraft
 Terminal=false
 # The native runner does not complete desktop startup-notification handshakes.

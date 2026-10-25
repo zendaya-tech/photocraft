@@ -1,7 +1,7 @@
 # Flatpak manifest for the single-file bundle attached to every GitHub release
-# (photocraft-<version>-linux-<arch>.flatpak). Build it with packaging/linux/flatpak-bundle.sh.
+# (photozen-<version>-linux-<arch>.flatpak). Build it with packaging/linux/flatpak-bundle.sh.
 #
-# It repackages the release's own Linux tarball (photocraft-<version>-linux-<arch>.tar.gz,
+# It repackages the release's own Linux tarball (photozen-<version>-linux-<arch>.tar.gz,
 # built on Ubuntu 22.04 by package.sh) instead of compiling Rust inside flatpak-builder: no
 # network and no vendored crate sources during the build, a few seconds instead of 20+ minutes,
 # and byte-for-byte the same binaries as the AppImage/deb/rpm. The script unpacks the tarball
@@ -40,8 +40,8 @@ modules:
   - name: photocraft
     buildsystem: simple
     build-commands:
-      - install -Dm755 bin/photocraft /app/bin/photocraft
-      - install -Dm755 bin/photocraft-cli /app/bin/photocraft-cli
+      - install -Dm755 bin/photozen /app/bin/photozen
+      - install -Dm755 bin/photozen-cli /app/bin/photozen-cli
       - install -Dm644 share/applications/ai.storyteller.photocraft.desktop /app/share/applications/ai.storyteller.photocraft.desktop
       # .pcraft, .psb and .qoi; the runtime's shared-mime-info already knows PSD and the rest.
       - install -Dm644 share/mime/packages/ai.storyteller.photocraft.xml /app/share/mime/packages/ai.storyteller.photocraft.xml

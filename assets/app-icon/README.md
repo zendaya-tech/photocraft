@@ -1,4 +1,4 @@
-# PhotoCraft app icon
+# Photozen app icon
 
 A **nine-tailed kitsune with a brow diamond**: an engraving portrait, seated, looking back at the
 viewer, in the Crafting Apps' owl-template framing (full-bleed field, head and body filling the
@@ -12,7 +12,7 @@ Exactly three colours:
 |---|---|---|
 | Ink | `#0b0b0c` | line work and contours |
 | Paper | `#efe9dc` | the figure |
-| PhotoCraft blue (app colour) | `#2f7bf5` | the full-bleed field |
+| Photozen blue (app colour) | `#2f7bf5` | the full-bleed field |
 
 ## Geometry
 
@@ -22,7 +22,7 @@ each side so the figure reads at 16–48 px.
 
 ## Provenance
 
-The owner's original drawing, made in ArtCraft (2880 px, engraving style, keyed to the palette),
+The owner's original drawing, made in Zendaya (2880 px, engraving style, keyed to the palette),
 vectorised with craftrules `assets/logo-options/_tools/vectorize_tile.py`. The source PNG stays in
 craftrules at `assets/app-icons/photocraft/source.png`. License: see `LICENSE.txt`.
 
