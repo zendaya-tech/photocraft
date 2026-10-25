@@ -1,10 +1,10 @@
 ---
 title: FAQ
-description: Short answers about PhotoCraft's price, Photoshop files and how it compares with Photoshop.
+description: Short answers about Photozen's price, Photoshop files and how it compares with Photoshop.
 order: 40
 verified: 0.8.2
 ---
 
-- [Is PhotoCraft free?](is-photocraft-free.md)
-- [Can PhotoCraft open my Photoshop files?](open-photoshop-files.md)
-- [Can PhotoCraft replace Photoshop?](replace-photoshop.md)
+- [Is Photozen free?](is-photocraft-free.md)
+- [Can Photozen open my Photoshop files?](open-photoshop-files.md)
+- [Can Photozen replace Photoshop?](replace-photoshop.md)

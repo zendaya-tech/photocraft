@@ -116,7 +116,7 @@ pub(crate) fn invoke_unguarded(app: &mut PhotocraftApp, ctx: &egui::Context, id:
     if let Some(result) = crate::panel_docking::command(app, id, &params) {
         return result;
     }
-    // Help › Discord, website, GitHub, Report an Issue.
+    // Help › WhatsApp, website, GitHub, Report an Issue.
     if let Some(url) = crate::links::url_for(id) {
         return Ok(crate::links::open(app, ctx, url));
     }
@@ -2010,7 +2010,7 @@ mod tests {
                 }
                 h.run_steps(3);
             };
-            let open = |h: &Harness<'_, PhotocraftApp>| h.query_by_label_contains("About PhotoCraft").is_some();
+            let open = |h: &Harness<'_, PhotocraftApp>| h.query_by_label_contains("About Photozen").is_some();
             let field_id = egui::Id::new("help-menu-search").with("field");
             let help = h.get_by_label("Help").rect().center();
             click(&mut h, help);
@@ -2031,7 +2031,7 @@ mod tests {
     }
 
     /// #5996: a real key press comes as a key and its text. A letter typed into Help › Search is
-    /// text for the field, not a mnemonic: "S" ran System Info and "A" the ArtCraft website.
+    /// text for the field, not a mnemonic: "S" ran System Info and "A" the Zendaya website.
     #[test]
     fn help_search_letters_are_not_mnemonics() {
         use egui::{Event, Key, Modifiers, PointerButton};
@@ -2049,7 +2049,7 @@ mod tests {
             h.run_steps(1);
         }
         h.run_steps(3);
-        assert!(h.query_by_label_contains("About PhotoCraft").is_some(), "Help opened");
+        assert!(h.query_by_label_contains("About Photozen").is_some(), "Help opened");
         for c in "DeSelect all".chars() {
             let key = Key::from_name(&c.to_ascii_uppercase().to_string());
             if let Some(key) = key {
@@ -2062,7 +2062,7 @@ mod tests {
             }
         }
         h.run_steps(3);
-        assert!(h.query_by_label_contains("About PhotoCraft").is_some(), "typing keeps Help open");
+        assert!(h.query_by_label_contains("About Photozen").is_some(), "typing keeps Help open");
         let query: String = h.ctx.data(|d| d.get_temp(egui::Id::new("help-menu-search"))).unwrap_or_default();
         assert_eq!(query, "DeSelect all", "every letter reached the field");
         assert!(h.state().ui.dialogs.is_empty(), "no menu command ran: {:?}", h.state().ui.dialogs);

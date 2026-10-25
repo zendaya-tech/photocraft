@@ -1,6 +1,6 @@
 # Summary
 
-[PhotoCraft Documentation](README.md)
+[Photozen Documentation](README.md)
 
 # Getting started
 
